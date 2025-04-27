@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Download, Mail, Phone, Linkedin, Github, MapPin, Code } from 'lucide-react'; // Added Code icon
+import { Badge } from '@/components/ui/badge'; // Import Badge component
 
 export const metadata: Metadata = {
   title: 'Resume - Minimalist Muse',
