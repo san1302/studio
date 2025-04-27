@@ -1,9 +1,5 @@
 import { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { Download, Mail, Phone, Linkedin, Github, MapPin, Code } from 'lucide-react'; // Added Code icon
-import { Badge } from '@/components/ui/badge'; // Import Badge component
 
 export const metadata: Metadata = {
   title: 'Resume - Minimalist Muse',
@@ -78,95 +74,97 @@ export default function ResumePage() {
            <Code size={28} className="text-primary"/> {/* Added Code icon */}
            Resume
         </h1>
-        <Button asChild variant="outline">
-          {/* Update the href to the actual path of your downloadable resume */}
-          <a href="/resume-minimalist-muse-dev.pdf" download> {/* Updated file name */}
+        {/* Basic link styled as a button */}
+        <a href="/resume-minimalist-muse-dev.pdf" download className="btn btn-outline btn-md">
             <Download className="mr-2 h-4 w-4" />
             Download PDF
-          </a>
-        </Button>
+        </a>
       </div>
 
-      <Card className="mb-8 shadow-sm border border-border"> {/* Added border */}
-        <CardHeader>
+       {/* Basic div styled as a card */}
+      <div className="card mb-8 shadow-sm border border-border p-6">
+        <div className="card-header border-b border-border pb-4 mb-4"> {/* Basic header div with bottom border */}
            <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
-              <CardTitle className="text-2xl">{resumeData.name}</CardTitle>
-              <p className="text-lg text-primary font-medium mt-1">{resumeData.title}</p> {/* Changed text-accent to text-primary */}
+              <h2 className="card-title text-2xl">{resumeData.name}</h2> {/* Basic title */}
+              <p className="text-lg text-primary font-medium mt-1">{resumeData.title}</p>
                <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1"><MapPin size={14}/> {resumeData.location}</p>
             </div>
              <div className="text-sm text-muted-foreground mt-4 md:mt-0 space-y-1 text-left md:text-right">
-               <a href={`mailto:${resumeData.contact.email}`} className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors"> {/* Changed hover:text-accent to hover:text-primary */}
+               <a href={`mailto:${resumeData.contact.email}`} className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors">
                  <Mail size={14} /> {resumeData.contact.email}
                </a>
                {/* Phone number commented out by default */}
                {/* <p className="flex items-center justify-start md:justify-end gap-2"><Phone size={14}/> {resumeData.contact.phone}</p> */}
-               <a href={`https://${resumeData.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors"> {/* Changed hover:text-accent to hover:text-primary */}
+               <a href={`https://${resumeData.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors">
                  <Linkedin size={14} /> {resumeData.contact.linkedin}
                </a>
-                <a href={`https://${resumeData.contact.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors"> {/* Changed hover:text-accent to hover:text-primary */}
+                <a href={`https://${resumeData.contact.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors">
                  <Github size={14} /> {resumeData.contact.github}
                </a>
              </div>
            </div>
-        </CardHeader>
-         <CardContent>
-          <Separator className="mb-4"/>
+        </div>
+        <div className="card-content"> {/* Basic content div */}
           <p className="text-muted-foreground">{resumeData.summary}</p>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
-          <Card className="shadow-sm border border-border"> {/* Added border */}
-            <CardHeader>
-              <CardTitle>Experience</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
+           {/* Basic div styled as a card */}
+          <div className="card shadow-sm border border-border p-6">
+            <div className="card-header mb-4 border-b border-border pb-4"> {/* Basic header div */}
+              <h3 className="card-title">Experience</h3> {/* Basic title */}
+            </div>
+            <div className="card-content space-y-6"> {/* Basic content div */}
               {resumeData.experience.map((job, index) => (
                 <div key={index}>
-                  <h3 className="font-semibold">{job.title}</h3>
-                  <p className="text-sm text-primary font-medium">{job.company} | {job.location}</p> {/* Changed text-accent to text-primary and added font-medium */}
+                  <h4 className="font-semibold">{job.title}</h4>
+                  <p className="text-sm text-primary font-medium">{job.company} | {job.location}</p>
                   <p className="text-xs text-muted-foreground mb-2">{job.period}</p>
                   <p className="text-sm text-muted-foreground">{job.description}</p>
-                   {index < resumeData.experience.length - 1 && <Separator className="mt-6" />}
+                   {/* Basic hr styled as a separator */}
+                   {index < resumeData.experience.length - 1 && <hr className="separator separator-horizontal mt-6" />}
                 </div>
               ))}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
-           <Card className="shadow-sm border border-border"> {/* Added border */}
-            <CardHeader>
-              <CardTitle>Education</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+            {/* Basic div styled as a card */}
+           <div className="card shadow-sm border border-border p-6">
+            <div className="card-header mb-4 border-b border-border pb-4"> {/* Basic header div */}
+              <h3 className="card-title">Education</h3> {/* Basic title */}
+            </div>
+            <div className="card-content space-y-4"> {/* Basic content div */}
               {resumeData.education.map((edu, index) => (
                 <div key={index}>
-                  <h3 className="font-semibold">{edu.degree}</h3>
+                  <h4 className="font-semibold">{edu.degree}</h4>
                   <p className="text-sm text-muted-foreground">{edu.institution} | {edu.location}</p>
                   <p className="text-xs text-muted-foreground">{edu.period}</p>
                 </div>
               ))}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
 
         <div className="lg:col-span-1">
-          <Card className="shadow-sm sticky top-20 border border-border"> {/* Added border */}
-            <CardHeader>
-              <CardTitle>Skills</CardTitle>
-            </CardHeader>
-            <CardContent>
+           {/* Basic div styled as a card */}
+          <div className="card shadow-sm sticky top-20 border border-border p-6">
+            <div className="card-header mb-4 border-b border-border pb-4"> {/* Basic header div */}
+              <h3 className="card-title">Skills</h3> {/* Basic title */}
+            </div>
+            <div className="card-content"> {/* Basic content div */}
               <div className="flex flex-wrap gap-2">
                 {resumeData.skills.map((skill, index) => (
-                   // Use Badge for skills for better consistency
-                   <Badge key={index} variant="secondary" className="font-normal">
+                   // Basic span styled as a badge
+                   <span key={index} className="badge badge-secondary font-normal">
                     {skill}
-                  </Badge>
+                  </span>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </div>

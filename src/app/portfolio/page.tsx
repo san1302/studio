@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
-import { Badge } from '@/components/ui/badge'; // Import Badge component
 
 export const metadata: Metadata = {
   title: 'Portfolio - Minimalist Muse',
@@ -56,7 +54,8 @@ export default function PortfolioPage() {
       </p>
       <div className="grid gap-8 md:grid-cols-2">
         {portfolioItems.map((item) => (
-          <Card key={item.id} className="overflow-hidden group hover:shadow-lg transition-shadow duration-200 border border-border"> {/* Added border */}
+           // Basic div styled as a card
+          <div key={item.id} className="card overflow-hidden group hover:shadow-lg transition-shadow duration-200 border border-border">
             <div className="relative h-48 w-full">
               <Image
                 src={item.imageUrl}
@@ -68,28 +67,29 @@ export default function PortfolioPage() {
                 priority={item.id <= 2} // Prioritize loading images for the first few items
               />
             </div>
-            <CardHeader>
-              <CardTitle className="text-xl mb-1 flex justify-between items-center">
+            <div className="card-header"> {/* Basic header div */}
+              <h2 className="card-title text-xl mb-1 flex justify-between items-center"> {/* Basic title */}
                 {item.title}
                 {item.link && item.link !== '#' && (
-                   <Link href={item.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 opacity-0 group-hover:opacity-100 transition-opacity"> {/* Changed text-accent to text-primary */}
+                   <Link href={item.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 opacity-0 group-hover:opacity-100 transition-opacity">
                     <ExternalLink className="h-5 w-5" />
                     <span className="sr-only">View Project</span>
                   </Link>
                 )}
-              </CardTitle>
-              <CardDescription>{item.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
+              </h2>
+              <p className="card-description">{item.description}</p> {/* Basic description */}
+            </div>
+            <div className="card-content"> {/* Basic content div */}
                <div className="flex flex-wrap gap-2 mt-2">
                 {item.tags.map((tag) => (
-                   <Badge key={tag} variant="secondary" className="text-xs"> {/* Used Badge component */}
+                   // Basic span styled as a badge
+                   <span key={tag} className="badge badge-secondary text-xs">
                     {tag}
-                  </Badge>
+                  </span>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </div>

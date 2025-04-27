@@ -3,13 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  /* Define basic theme colors using CSS variables */
   :root {
     --background: 0 0% 98%; /* Very light gray */
     --foreground: 220 15% 20%; /* Dark grayish blue */
-    --card: 0 0% 100%; /* White */
-    --card-foreground: 220 15% 20%; /* Dark grayish blue */
-    --popover: 0 0% 100%; /* White */
-    --popover-foreground: 220 15% 20%; /* Dark grayish blue */
     --primary: 210 80% 50%; /* Vibrant blue */
     --primary-foreground: 0 0% 98%; /* Very light gray */
     --secondary: 210 20% 95%; /* Light blue-gray */
@@ -23,29 +20,11 @@
     --border: 210 15% 90%; /* Light blue-gray border */
     --input: 210 15% 90%; /* Light blue-gray input */
     --ring: 210 80% 50%; /* Vibrant blue for focus rings */
-    --chart-1: 210 80% 50%; /* Vibrant blue */
-    --chart-2: 150 60% 45%; /* Muted Teal/Green */
-    --chart-3: 210 60% 60%; /* Lighter Blue */
-    --chart-4: 150 40% 55%; /* Lighter Teal/Green */
-    --chart-5: 210 40% 70%; /* Very Light Blue */
-    --radius: 0.5rem;
-    --sidebar-background: 210 20% 98%; /* Slightly bluer light gray */
-    --sidebar-foreground: 220 15% 20%; /* Dark grayish blue */
-    --sidebar-primary: 210 80% 50%; /* Vibrant blue */
-    --sidebar-primary-foreground: 0 0% 98%; /* Very light gray */
-    --sidebar-accent: 210 20% 92%; /* Slightly darker light blue-gray */
-    --sidebar-accent-foreground: 220 15% 15%; /* Very dark grayish blue */
-    --sidebar-border: 210 15% 85%; /* Medium blue-gray border */
-    --sidebar-ring: 210 80% 50%; /* Vibrant blue */
   }
 
   .dark {
     --background: 220 15% 15%; /* Dark grayish blue */
     --foreground: 0 0% 98%; /* Very light gray */
-    --card: 220 15% 18%; /* Slightly lighter dark */
-    --card-foreground: 0 0% 98%; /* Very light gray */
-    --popover: 220 15% 18%; /* Slightly lighter dark */
-    --popover-foreground: 0 0% 98%; /* Very light gray */
     --primary: 210 90% 60%; /* Brighter blue */
     --primary-foreground: 220 15% 10%; /* Very dark */
     --secondary: 220 15% 25%; /* Darker grayish blue */
@@ -59,29 +38,18 @@
     --border: 220 15% 30%; /* Dark gray border */
     --input: 220 15% 30%; /* Dark gray input */
     --ring: 210 90% 60%; /* Brighter blue for focus rings */
-    --chart-1: 210 90% 60%; /* Brighter blue */
-    --chart-2: 150 70% 55%; /* Brighter Teal/Green */
-    --chart-3: 210 70% 70%; /* Lighter Blue */
-    --chart-4: 150 50% 65%; /* Lighter Teal/Green */
-    --chart-5: 210 50% 80%; /* Very Light Blue */
-    --sidebar-background: 220 15% 12%; /* Darker sidebar */
-    --sidebar-foreground: 0 0% 98%; /* Light gray */
-    --sidebar-primary: 210 90% 60%; /* Brighter blue */
-    --sidebar-primary-foreground: 220 15% 10%; /* Very dark */
-    --sidebar-accent: 220 15% 22%; /* Slightly lighter dark blue */
-    --sidebar-accent-foreground: 0 0% 98%; /* Light gray */
-    --sidebar-border: 220 15% 28%; /* Medium dark border */
-    --sidebar-ring: 210 90% 60%; /* Brighter blue */
   }
 }
 
+
 @layer base {
   * {
+    /* Apply Tailwind's border color and transition */
     @apply border-border transition-colors duration-200;
   }
   body {
+    /* Apply Tailwind's background and text color */
     @apply bg-background text-foreground;
-    /* Use fonts defined in layout.tsx */
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
@@ -91,13 +59,117 @@
   h3 { @apply text-2xl; }
   h4 { @apply text-xl; }
   p { @apply leading-7; }
-  a { @apply text-primary hover:text-primary/80 underline-offset-4; }
-  /* Ensure article links also use primary */
-  .prose a { @apply text-primary hover:text-primary/80; }
+  a {
+    /* Apply Tailwind's primary color and hover effect */
+    @apply text-primary hover:text-primary/80 underline-offset-4;
+  }
+  /* Apply primary color to links within prose */
+  .prose a {
+    @apply text-primary hover:text-primary/80;
+  }
 }
 
 @layer components {
+  /* Define a simple container class */
   .container {
     @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Basic Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+  .btn-outline {
+    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+  }
+    .btn-link {
+    @apply text-primary underline-offset-4 hover:underline;
+  }
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground;
+  }
+  .btn-destructive {
+     @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+  }
+  .btn-lg {
+    @apply h-11 px-8;
+  }
+  .btn-md {
+    @apply h-10 px-4 py-2;
+  }
+  .btn-sm {
+    @apply h-9 px-3;
+  }
+  .btn-icon {
+    @apply h-10 w-10;
+  }
+
+  /* Basic Input Styles */
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+  }
+
+  /* Basic Textarea Styles */
+  .textarea {
+      @apply flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+  }
+
+  /* Basic Card Styles */
+   .card {
+    @apply rounded-lg border border-border bg-white dark:bg-card p-6 shadow-sm; /* Use white for light, dark card for dark */
+  }
+  .card-header {
+    @apply mb-4;
+  }
+  .card-title {
+    @apply text-xl font-semibold;
+  }
+   .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+  .card-content {
+     @apply text-sm;
+  }
+  .card-footer {
+    @apply mt-4 pt-4 border-t border-border;
+  }
+
+  /* Basic Badge Styles */
+  .badge {
+      @apply inline-flex items-center rounded-full border border-border px-2.5 py-0.5 text-xs font-semibold transition-colors;
+  }
+  .badge-secondary {
+       @apply border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+   /* Basic Separator Styles */
+  .separator {
+     @apply shrink-0 bg-border;
+  }
+  .separator-horizontal {
+     @apply h-[1px] w-full;
+  }
+  .separator-vertical {
+     @apply h-full w-[1px];
+  }
+
+   /* Basic Toast Styles */
+   .toast {
+       @apply fixed bottom-5 right-5 z-50 max-w-sm rounded-md border border-border bg-background p-4 shadow-lg;
+   }
+   .toast-title {
+       @apply font-semibold text-sm;
+   }
+   .toast-description {
+       @apply text-sm text-muted-foreground;
+   }
+   .toast-destructive {
+        @apply border-destructive bg-destructive text-destructive-foreground;
+   }
 }

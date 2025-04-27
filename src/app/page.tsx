@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from 'next/image';
 import { ArrowRight, User, Code, Mail } from "lucide-react"; // Added Mail icon
-import { Separator } from "@/components/ui/separator";
 import ContactForm from "@/components/contact-form"; // Import ContactForm
 
 export default function Home() {
@@ -16,30 +14,29 @@ export default function Home() {
         Crafting clean code and intuitive designs. Exploring ideas through writing, showcasing creative work, and sharing professional experiences in software development.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 mb-16">
-        <Button asChild size="lg">
-          <Link href="/articles">
+        {/* Using btn and btn-primary classes */}
+        <Link href="/articles" className="btn btn-primary btn-lg">
             Read Articles <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg">
-          <Link href="/portfolio">
+        </Link>
+         {/* Using btn and btn-outline classes */}
+        <Link href="/portfolio" className="btn btn-outline btn-lg">
             View Portfolio
-          </Link>
-        </Button>
-         <Button asChild variant="secondary" size="lg">
-          <Link href="/resume">
+        </Link>
+        {/* Using btn and btn-secondary classes */}
+         <Link href="/resume" className="btn btn-secondary btn-lg">
             View Resume
-          </Link>
-        </Button>
+         </Link>
       </div>
 
-      <Separator className="my-12 md:my-16 max-w-md" />
+      {/* Using separator and separator-horizontal classes */}
+      <hr className="separator separator-horizontal my-12 md:my-16 max-w-md" />
+
 
       {/* About Me Section */}
       <section className="w-full max-w-4xl flex flex-col md:flex-row items-center gap-8 md:gap-12 text-left mb-16 md:mb-24">
         <div className="w-40 h-40 md:w-48 md:h-48 relative flex-shrink-0">
-           {/* Fallback div will show if Image component fails to load or src is missing */}
-           <div className="absolute inset-0 flex items-center justify-center bg-muted rounded-full -z-10 border-4 border-card shadow-md">
+           {/* Basic div for placeholder with Tailwind classes */}
+           <div className="absolute inset-0 flex items-center justify-center bg-muted rounded-full -z-10 border-4 border-white dark:border-card shadow-md">
              <User className="h-16 w-16 text-muted-foreground" />
            </div>
           <Image
@@ -47,7 +44,7 @@ export default function Home() {
             alt="Minimalist Muse Developer Portrait"
             width={192} // Added width
             height={192} // Added height
-            className="rounded-full border-4 border-card shadow-md z-10 object-cover" // Ensure image is above fallback and has object-fit
+            className="rounded-full border-4 border-white dark:border-card shadow-md z-10 object-cover" // Ensure image is above fallback and has object-fit
           />
         </div>
         <div className="flex flex-col text-center md:text-left">
@@ -58,15 +55,15 @@ export default function Home() {
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
             This space is where I share insights on technology, software architecture, development best practices, and the occasional productivity hack. Explore my articles and portfolio to see my work and perspective.
           </p>
-            <Button asChild variant="link" className="mt-4 justify-center md:justify-start px-0 text-primary hover:text-primary/80">
-               <Link href="/resume">
+            {/* Using btn and btn-link classes */}
+             <Link href="/resume" className="btn btn-link mt-4 justify-center md:justify-start px-0 text-primary hover:text-primary/80">
                  Learn more about my experience <ArrowRight className="ml-1 h-4 w-4" />
-               </Link>
-             </Button>
+             </Link>
         </div>
       </section>
 
-      <Separator className="my-12 md:my-16 max-w-md" />
+      {/* Using separator and separator-horizontal classes */}
+      <hr className="separator separator-horizontal my-12 md:my-16 max-w-md" />
 
        {/* Contact Me Section */}
        <section className="w-full max-w-xl text-center">

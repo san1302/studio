@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import './globals.css';
-import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Toaster } from '@/components/ui/toaster';
+// Toaster removed as useToast hook is removed
 import { ThemeProvider } from '@/components/theme-provider'; // Import ThemeProvider
 
 const geistSans = Geist({
@@ -24,12 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full" suppressHydrationWarning={true}>
+      {/* Added suppressHydrationWarning to html tag */}
       <body
-        className={cn(
-          'min-h-screen bg-background font-sans antialiased flex flex-col',
-          geistSans.variable
-        )}
-        suppressHydrationWarning={true} // Add suppressHydrationWarning here
+        // Use template literals for cleaner class concatenation
+        className={`min-h-screen bg-background font-sans antialiased flex flex-col ${geistSans.variable}`}
+        suppressHydrationWarning={true} // Keep suppressHydrationWarning on body
       >
         <ThemeProvider
           attribute="class"
@@ -42,7 +40,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <Toaster />
+          {/* Toaster component removed */}
         </ThemeProvider>
       </body>
     </html>

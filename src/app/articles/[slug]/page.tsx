@@ -1,7 +1,5 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -93,8 +91,6 @@ const articlesData: { [key: string]: any } = {
 
 // Function to fetch article data (replace with actual API call/DB query)
 async function getArticle(slug: string) {
-  // Simulate API delay
-  // await new Promise(resolve => setTimeout(resolve, 100));
   return articlesData[slug];
 }
 
@@ -123,7 +119,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
 
   return (
     <article className="max-w-3xl mx-auto">
-       <Link href="/articles" className="inline-flex items-center text-sm text-primary hover:text-primary/80 mb-6 group"> {/* Changed text-accent to text-primary */}
+       <Link href="/articles" className="inline-flex items-center text-sm text-primary hover:text-primary/80 mb-6 group">
           <ArrowLeft className="mr-1 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
           Back to Articles
         </Link>
@@ -134,13 +130,15 @@ export default async function ArticlePage({ params }: { params: { slug: string }
         </p>
         <div className="flex flex-wrap gap-2">
           {article.tags.map((tag: string) => (
-            <Badge key={tag} variant="secondary">{tag}</Badge>
+            // Basic span styled as a badge
+            <span key={tag} className="badge badge-secondary">{tag}</span>
           ))}
         </div>
       </header>
-      <Separator className="my-8" />
+      {/* Basic hr styled as a separator */}
+      <hr className="separator separator-horizontal my-8" />
       <div
-        className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:marker:text-muted-foreground" // Changed prose-a:text-accent to prose-a:text-primary
+        className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:marker:text-muted-foreground"
         dangerouslySetInnerHTML={{ __html: article.content }}
       />
     </article>

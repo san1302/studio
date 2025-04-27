@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import { ArrowLeft } from 'lucide-react'
 
 export default function NotFound() {
@@ -10,12 +9,11 @@ export default function NotFound() {
       <p className="text-lg text-muted-foreground max-w-md mb-8">
         Oops! The page you're looking for seems to have vanished into the digital ether.
       </p>
-      <Button asChild>
-        <Link href="/">
+       {/* Basic link styled as a button */}
+       <Link href="/" className="btn btn-primary btn-md">
            <ArrowLeft className="mr-2 h-4 w-4" />
            Return Home
-        </Link>
-      </Button>
+       </Link>
     </div>
   )
 }
