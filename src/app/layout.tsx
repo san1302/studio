@@ -29,6 +29,7 @@ export default function RootLayout({
           'min-h-screen bg-background font-sans antialiased flex flex-col',
           geistSans.variable
         )}
+        suppressHydrationWarning={true} // Add suppressHydrationWarning here as well
       >
         <ThemeProvider
           attribute="class"
