@@ -5,8 +5,9 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Code2 } from 'lucide-react'; // Changed Feather to Code2
+import { Menu, CodeXml } from 'lucide-react'; // Changed Feather to CodeXml
 import * as React from 'react';
+import { ThemeToggle } from '@/components/theme-toggle'; // Import ThemeToggle
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -25,10 +26,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Code2 className="h-6 w-6 text-primary" /> {/* Changed Feather to Code2 and text-accent to text-primary */}
+          <CodeXml className="h-6 w-6 text-primary" /> {/* Changed Feather to CodeXml and text-accent to text-primary */}
           <span className="font-bold hidden sm:inline-block">Minimalist Muse</span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium flex-grow">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -42,7 +43,11 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+        <div className="hidden md:flex items-center space-x-2">
+          <ThemeToggle />
+        </div>
         <div className="flex flex-1 items-center justify-end md:hidden">
+           <ThemeToggle /> {/* Add theme toggle for mobile */}
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -52,7 +57,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="pr-0 pt-12">
               <Link href="/" className="flex items-center mb-8 px-6" onClick={closeSheet}>
-                 <Code2 className="h-6 w-6 mr-2 text-primary" /> {/* Changed Feather to Code2 and text-accent to text-primary */}
+                 <CodeXml className="h-6 w-6 mr-2 text-primary" /> {/* Changed Feather to CodeXml and text-accent to text-primary */}
                 <span className="font-bold">Minimalist Muse</span>
               </Link>
               <nav className="flex flex-col space-y-4 px-6">
