@@ -23,7 +23,7 @@ const portfolioItems = [
     id: 2,
     title: 'Abstract Generative Art',
     description: 'Exploring algorithms to create unique and abstract visual patterns using p5.js.',
-    imageUrl: 'https/picsum.photos/seed/genart/600/400', // Updated URL format
+    imageUrl: 'https://picsum.photos/seed/genart/600/400', // Corrected URL
     link: '#', // Replace with actual project link
     tags: ['p5.js', 'Generative Art', 'Creative Coding'],
   },
@@ -64,6 +64,7 @@ export default function PortfolioPage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: 'cover' }}
                 className="transition-transform duration-300 group-hover:scale-105"
+                priority={item.id <= 2} // Prioritize loading images for the first few items
               />
             </div>
             <CardHeader>
