@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from 'next/image';
-import { ArrowRight, User, Code } from "lucide-react";
+import { ArrowRight, User, Code, Mail } from "lucide-react"; // Added Mail icon
 import { Separator } from "@/components/ui/separator";
+import ContactForm from "@/components/contact-form"; // Import ContactForm
 
 export default function Home() {
   return (
@@ -34,24 +35,19 @@ export default function Home() {
 
       <Separator className="my-12 md:my-16 max-w-md" />
 
-      <section className="w-full max-w-4xl flex flex-col md:flex-row items-center gap-8 md:gap-12 text-left">
+      {/* About Me Section */}
+      <section className="w-full max-w-4xl flex flex-col md:flex-row items-center gap-8 md:gap-12 text-left mb-16 md:mb-24">
         <div className="w-40 h-40 md:w-48 md:h-48 relative flex-shrink-0">
            {/* Fallback div will show if Image component fails to load or src is missing */}
            <div className="absolute inset-0 flex items-center justify-center bg-muted rounded-full -z-10 border-4 border-card shadow-md">
              <User className="h-16 w-16 text-muted-foreground" />
            </div>
           <Image
-            // Consider using a real image URL or keeping the placeholder
             src="/placeholder-dev.png" // Using local placeholder
             alt="Minimalist Muse Developer Portrait"
-            fill
-            sizes="(max-width: 768px) 160px, 192px"
-            style={{ objectFit: 'cover' }}
-            className="rounded-full border-4 border-card shadow-md z-10" // Ensure image is above fallback
-            // onError removed as it's not allowed in Server Components
-            // onError={(e) => {
-            //    (e.target as HTMLImageElement).style.display = 'none';
-            // }}
+            width={192} // Added width
+            height={192} // Added height
+            className="rounded-full border-4 border-card shadow-md z-10 object-cover" // Ensure image is above fallback and has object-fit
           />
         </div>
         <div className="flex flex-col text-center md:text-left">
@@ -69,6 +65,20 @@ export default function Home() {
              </Button>
         </div>
       </section>
+
+      <Separator className="my-12 md:my-16 max-w-md" />
+
+       {/* Contact Me Section */}
+       <section className="w-full max-w-xl text-center">
+         <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
+           <Mail className="h-7 w-7 text-primary" /> {/* Added icon */}
+           Get In Touch
+         </h2>
+         <p className="text-muted-foreground mb-8 text-base md:text-lg leading-relaxed">
+           Have a question, project idea, or just want to connect? Feel free to send me a message using the form below.
+         </p>
+         <ContactForm />
+       </section>
     </div>
   );
 }
