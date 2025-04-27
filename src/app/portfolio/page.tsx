@@ -23,7 +23,7 @@ const portfolioItems = [
     id: 2,
     title: 'Abstract Generative Art',
     description: 'Exploring algorithms to create unique and abstract visual patterns using p5.js.',
-    imageUrl: 'https://picsum.photos/seed/genart/600/400', // Corrected URL
+    imageUrl: 'https://picsum.photos/seed/genart/600/400',
     link: '#', // Replace with actual project link
     tags: ['p5.js', 'Generative Art', 'Creative Coding'],
   },
