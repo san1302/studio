@@ -22,12 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning={true}>
+    <html lang="en" className="h-full">
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased flex flex-col',
           geistSans.variable
         )}
+        suppressHydrationWarning={true} // Moved here to address hydration mismatch on body
       >
         <Header />
         <main className="flex-grow container py-10">
