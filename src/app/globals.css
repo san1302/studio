@@ -5,76 +5,73 @@
 @layer base {
   :root {
     --background: 0 0% 98%; /* Very light gray */
-    --foreground: 0 0% 10%; /* Dark gray */
+    --foreground: 220 15% 20%; /* Dark grayish blue */
     --card: 0 0% 100%; /* White */
-    --card-foreground: 0 0% 10%; /* Dark gray */
+    --card-foreground: 220 15% 20%; /* Dark grayish blue */
     --popover: 0 0% 100%; /* White */
-    --popover-foreground: 0 0% 10%; /* Dark gray */
-    --primary: 0 0% 10%; /* Dark gray */
+    --popover-foreground: 220 15% 20%; /* Dark grayish blue */
+    --primary: 210 80% 50%; /* Vibrant blue */
     --primary-foreground: 0 0% 98%; /* Very light gray */
-    --secondary: 0 0% 95%; /* Lighter gray */
-    --secondary-foreground: 0 0% 10%; /* Dark gray */
-    --muted: 0 0% 95%; /* Lighter gray */
-    --muted-foreground: 0 0% 45%; /* Medium gray */
-    --accent: 180 100% 25%; /* Teal (#008080) */
+    --secondary: 210 20% 95%; /* Light blue-gray */
+    --secondary-foreground: 220 15% 30%; /* Darker grayish blue */
+    --muted: 210 20% 95%; /* Light blue-gray */
+    --muted-foreground: 220 10% 45%; /* Medium grayish blue */
+    --accent: 150 60% 45%; /* Muted Teal/Green */
     --accent-foreground: 0 0% 98%; /* Very light gray */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%; /* Light gray border */
-    --input: 0 0% 90%; /* Light gray input */
-    --ring: 180 100% 25%; /* Teal for focus rings */
-    --chart-1: 180 100% 25%;
-    --chart-2: 180 80% 35%;
-    --chart-3: 180 60% 45%;
-    --chart-4: 180 40% 55%;
-    --chart-5: 180 20% 65%;
+    --border: 210 15% 90%; /* Light blue-gray border */
+    --input: 210 15% 90%; /* Light blue-gray input */
+    --ring: 210 80% 50%; /* Vibrant blue for focus rings */
+    --chart-1: 210 80% 50%; /* Vibrant blue */
+    --chart-2: 150 60% 45%; /* Muted Teal/Green */
+    --chart-3: 210 60% 60%; /* Lighter Blue */
+    --chart-4: 150 40% 55%; /* Lighter Teal/Green */
+    --chart-5: 210 40% 70%; /* Very Light Blue */
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 180 100% 25%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 95%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 180 100% 25%;
+    --sidebar-background: 210 20% 98%; /* Slightly bluer light gray */
+    --sidebar-foreground: 220 15% 20%; /* Dark grayish blue */
+    --sidebar-primary: 210 80% 50%; /* Vibrant blue */
+    --sidebar-primary-foreground: 0 0% 98%; /* Very light gray */
+    --sidebar-accent: 210 20% 92%; /* Slightly darker light blue-gray */
+    --sidebar-accent-foreground: 220 15% 15%; /* Very dark grayish blue */
+    --sidebar-border: 210 15% 85%; /* Medium blue-gray border */
+    --sidebar-ring: 210 80% 50%; /* Vibrant blue */
   }
 
   .dark {
-    /* Define dark mode variables if needed in the future,
-       but for now, focus on the light minimalist theme.
-       Keeping the structure for potential expansion. */
-    --background: 0 0% 10%; /* Dark gray */
+    --background: 220 15% 15%; /* Dark grayish blue */
     --foreground: 0 0% 98%; /* Very light gray */
-    --card: 0 0% 12%; /* Slightly darker gray */
+    --card: 220 15% 18%; /* Slightly lighter dark */
     --card-foreground: 0 0% 98%; /* Very light gray */
-    --popover: 0 0% 12%; /* Slightly darker gray */
+    --popover: 220 15% 18%; /* Slightly lighter dark */
     --popover-foreground: 0 0% 98%; /* Very light gray */
-    --primary: 0 0% 98%; /* Very light gray */
-    --primary-foreground: 0 0% 10%; /* Dark gray */
-    --secondary: 0 0% 15%; /* Darker gray */
+    --primary: 210 90% 60%; /* Brighter blue */
+    --primary-foreground: 220 15% 10%; /* Very dark */
+    --secondary: 220 15% 25%; /* Darker grayish blue */
     --secondary-foreground: 0 0% 98%; /* Very light gray */
-    --muted: 0 0% 15%; /* Darker gray */
+    --muted: 220 15% 25%; /* Darker grayish blue */
     --muted-foreground: 0 0% 65%; /* Medium gray */
-    --accent: 180 100% 35%; /* Lighter Teal for dark mode */
-    --accent-foreground: 0 0% 10%; /* Dark gray */
+    --accent: 150 70% 55%; /* Brighter Teal/Green */
+    --accent-foreground: 220 15% 10%; /* Very dark */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%; /* Dark gray border */
-    --input: 0 0% 20%; /* Dark gray input */
-    --ring: 180 100% 35%; /* Lighter Teal for focus rings */
-    --chart-1: 180 100% 35%;
-    --chart-2: 180 80% 45%;
-    --chart-3: 180 60% 55%;
-    --chart-4: 180 40% 65%;
-    --chart-5: 180 20% 75%;
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 180 100% 35%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 180 100% 35%;
+    --border: 220 15% 30%; /* Dark gray border */
+    --input: 220 15% 30%; /* Dark gray input */
+    --ring: 210 90% 60%; /* Brighter blue for focus rings */
+    --chart-1: 210 90% 60%; /* Brighter blue */
+    --chart-2: 150 70% 55%; /* Brighter Teal/Green */
+    --chart-3: 210 70% 70%; /* Lighter Blue */
+    --chart-4: 150 50% 65%; /* Lighter Teal/Green */
+    --chart-5: 210 50% 80%; /* Very Light Blue */
+    --sidebar-background: 220 15% 12%; /* Darker sidebar */
+    --sidebar-foreground: 0 0% 98%; /* Light gray */
+    --sidebar-primary: 210 90% 60%; /* Brighter blue */
+    --sidebar-primary-foreground: 220 15% 10%; /* Very dark */
+    --sidebar-accent: 220 15% 22%; /* Slightly lighter dark blue */
+    --sidebar-accent-foreground: 0 0% 98%; /* Light gray */
+    --sidebar-border: 220 15% 28%; /* Medium dark border */
+    --sidebar-ring: 210 90% 60%; /* Brighter blue */
   }
 }
 
@@ -94,7 +91,9 @@
   h3 { @apply text-2xl; }
   h4 { @apply text-xl; }
   p { @apply leading-7; }
-  a { @apply text-accent hover:underline underline-offset-4; }
+  a { @apply text-primary hover:text-primary/80 underline-offset-4; }
+  /* Ensure article links also use primary */
+  .prose a { @apply text-primary hover:text-primary/80; }
 }
 
 @layer components {

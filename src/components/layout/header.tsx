@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Feather } from 'lucide-react';
+import { Menu, Code2 } from 'lucide-react'; // Changed Feather to Code2
 import * as React from 'react';
 
 const navItems = [
@@ -25,7 +25,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Feather className="h-6 w-6 text-accent" />
+          <Code2 className="h-6 w-6 text-primary" /> {/* Changed Feather to Code2 and text-accent to text-primary */}
           <span className="font-bold hidden sm:inline-block">Minimalist Muse</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -35,7 +35,7 @@ export default function Header() {
               href={item.href}
               className={cn(
                 'transition-colors hover:text-foreground/80',
-                pathname === item.href ? 'text-foreground' : 'text-foreground/60'
+                pathname === item.href ? 'text-foreground font-semibold' : 'text-foreground/60' // Adjusted active state style
               )}
             >
               {item.label}
@@ -52,7 +52,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="pr-0 pt-12">
               <Link href="/" className="flex items-center mb-8 px-6" onClick={closeSheet}>
-                <Feather className="h-6 w-6 mr-2 text-accent" />
+                 <Code2 className="h-6 w-6 mr-2 text-primary" /> {/* Changed Feather to Code2 and text-accent to text-primary */}
                 <span className="font-bold">Minimalist Muse</span>
               </Link>
               <nav className="flex flex-col space-y-4 px-6">

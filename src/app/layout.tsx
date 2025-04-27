@@ -14,6 +14,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: 'Minimalist Muse - Personal Website',
   description: 'Articles, Portfolio, and Resume of a Minimalist Muse.',
+  // Removed favicon link as it's not generated
 };
 
 export default function RootLayout({
@@ -22,13 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning={true}>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased flex flex-col',
           geistSans.variable
         )}
-        suppressHydrationWarning={true} // Moved here to address hydration mismatch on body
       >
         <Header />
         <main className="flex-grow container py-10">

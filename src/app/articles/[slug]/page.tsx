@@ -39,49 +39,53 @@ const articlesData: { [key: string]: any } = {
      slug: 'getting-started-with-nextjs',
     title: 'Getting Started with Next.js 15',
     date: new Date(2024, 5, 28),
-    tags: ['Web Development', 'Next.js', 'React'],
+    tags: ['Web Development', 'Next.js', 'React', 'TypeScript'],
     content: `
-      <p>Next.js continues to evolve, making it a powerful framework for building modern web applications. Version 15 introduces several exciting features and improvements.</p>
+      <p>Next.js continues to evolve, making it a powerful framework for building modern web applications. Version 15 introduces several exciting features and improvements, especially around the App Router and Server Components.</p>
       <h2 class="text-2xl font-semibold mt-6 mb-3">Setting Up Your Project</h2>
-      <p>To create a new Next.js app, simply run:</p>
-      <pre class="bg-muted p-4 rounded-md my-4 overflow-x-auto"><code class="font-mono text-sm">npx create-next-app@latest my-minimalist-app</code></pre>
-      <p>Follow the prompts to configure your project, including TypeScript support and Tailwind CSS integration.</p>
-      <h2 class="text-2xl font-semibold mt-6 mb-3">Key Concepts</h2>
-      <p>Understand the basics:</p>
+      <p>Creating a new Next.js app with the latest features is straightforward:</p>
+      <pre class="bg-muted p-4 rounded-md my-4 overflow-x-auto"><code class="font-mono text-sm">npx create-next-app@latest my-dev-app --typescript --tailwind --eslint</code></pre>
+      <p>This command sets up a new project with TypeScript, Tailwind CSS, and ESLint configured, ready for development.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-3">Key Concepts for Developers</h2>
+      <p>Understanding these core concepts is crucial for leveraging Next.js effectively:</p>
       <ul class="list-disc list-inside my-4 space-y-2 pl-4">
-        <li>App Router vs. Pages Router</li>
-        <li>Server Components and Client Components</li>
-        <li>File-based Routing</li>
-        <li>Data Fetching Strategies</li>
+        <li><strong>App Router:</strong> The default routing system, enabling features like nested layouts, route groups, and Server Components.</li>
+        <li><strong>Server Components:</strong> Rendered on the server, reducing client-side JavaScript and improving performance. Ideal for data fetching and non-interactive UI.</li>
+        <li><strong>Client Components:</strong> Use the <code>'use client'</code> directive. Necessary for interactivity, state management (useState, useEffect), and browser APIs.</li>
+        <li><strong>File-based Routing:</strong> Directory structure defines routes (e.g., <code>app/dashboard/page.tsx</code> maps to <code>/dashboard</code>).</li>
+        <li><strong>Data Fetching:</strong> Use async Server Components for direct data fetching or leverage Server Actions for mutations.</li>
+        <li><strong>Server Actions:</strong> Functions executed securely on the server, often used for form submissions and data mutations without needing separate API routes.</li>
       </ul>
-      <p>Next.js provides a robust foundation for building performant and scalable applications with an excellent developer experience.</p>
+      <p>Next.js provides a robust foundation for building performant, scalable, and maintainable full-stack applications with an excellent developer experience focused on modern web standards.</p>
     `,
   },
    'mindful-productivity': {
     slug: 'mindful-productivity',
-    title: 'Mindful Productivity: Achieving More with Less Stress',
+    title: 'Mindful Productivity for Developers',
     date: new Date(2024, 5, 10),
-    tags: ['Productivity', 'Mindfulness', 'Well-being'],
+    tags: ['Productivity', 'Mindfulness', 'Well-being', 'Software Development'],
     content: `
-      <p>In today's fast-paced world, productivity often feels like a relentless race. Mindful productivity offers a different approach – focusing on intention, presence, and sustainable effort.</p>
-      <h2 class="text-2xl font-semibold mt-6 mb-3">Core Principles</h2>
+      <p>In the demanding world of software development, productivity often feels like a relentless race against deadlines and complexity. Mindful productivity offers a sustainable approach – focusing on intention, presence, and reducing cognitive load.</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-3">Core Principles for Coders</h2>
       <ul class="list-disc list-inside my-4 space-y-2 pl-4">
-        <li><strong>Single-Tasking:</strong> Avoid the myth of multitasking. Focus fully on one task at a time.</li>
-        <li><strong>Presence:</strong> Be fully engaged with the task at hand, reducing distractions.</li>
-        <li><strong>Intentional Breaks:</strong> Schedule regular breaks to rest and recharge, preventing burnout.</li>
-        <li><strong>Prioritization:</strong> Focus on high-impact tasks rather than trying to do everything.</li>
-        <li><strong>Self-Compassion:</strong> Acknowledge that perfection isn't possible and treat yourself kindly.</li>
+        <li><strong>Deep Work Blocks:</strong> Allocate uninterrupted time for complex coding tasks, minimizing context switching.</li>
+        <li><strong>Manage Cognitive Load:</strong> Break down complex problems into smaller, manageable chunks. Use tools and techniques to offload mental effort (e.g., good documentation, clear variable names).</li>
+        <li><strong>Intentional Debugging:</strong> Approach debugging sessions with curiosity and a structured process, rather than frustration.</li>
+        <li><strong>Regular Breaks:</strong> Step away from the screen to rest your eyes and mind. Short breaks can significantly improve focus and problem-solving.</li>
+        <li><strong>Mindful Communication:</strong> Be present in meetings and code reviews. Practice active listening and provide constructive feedback.</li>
+        <li><strong>Accept Imperfection:</strong> Recognize that code is iterative. Aim for progress, not perfection, especially in early stages.</li>
       </ul>
       <h2 class="text-2xl font-semibold mt-6 mb-3">Practical Techniques</h2>
-      <p>Try incorporating these habits:</p>
+      <p>Integrate these habits into your workflow:</p>
       <ul class="list-disc list-inside my-4 space-y-2 pl-4">
-        <li>Time blocking</li>
-        <li>The Pomodoro Technique</li>
-        <li>Regular mindfulness or meditation practice</li>
-        <li>Digital detox periods</li>
-        <li>Journaling to clarify thoughts and priorities</li>
+        <li>Time blocking for coding vs. meetings vs. learning.</li>
+        <li>The Pomodoro Technique (e.g., 25 mins coding, 5 mins break).</li>
+        <li>Turning off non-essential notifications during focus blocks.</li>
+        <li>Using rubber duck debugging to articulate problems.</li>
+        <li>Regularly refactoring code to maintain clarity.</li>
+        <li>Ending the workday with a brief review and plan for the next day.</li>
       </ul>
-      <p>By integrating mindfulness into your workflow, you can enhance focus, reduce stress, and achieve more meaningful results.</p>
+      <p>By integrating mindfulness into your development process, you can enhance focus, reduce stress, write better code, and find more satisfaction in your work.</p>
     `,
   },
 };
@@ -119,7 +123,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
 
   return (
     <article className="max-w-3xl mx-auto">
-       <Link href="/articles" className="inline-flex items-center text-sm text-accent hover:underline mb-6 group">
+       <Link href="/articles" className="inline-flex items-center text-sm text-primary hover:text-primary/80 mb-6 group"> {/* Changed text-accent to text-primary */}
           <ArrowLeft className="mr-1 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
           Back to Articles
         </Link>
@@ -136,7 +140,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
       </header>
       <Separator className="my-8" />
       <div
-        className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-li:marker:text-muted-foreground"
+        className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:marker:text-muted-foreground" // Changed prose-a:text-accent to prose-a:text-primary
         dangerouslySetInnerHTML={{ __html: article.content }}
       />
     </article>

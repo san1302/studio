@@ -6,42 +6,42 @@ import { ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Portfolio - Minimalist Muse',
-  description: 'A showcase of selected projects.',
+  description: 'A showcase of selected software development projects.',
 };
 
-// Mock data - replace with actual projects
+// Mock data - Replace with actual projects
 const portfolioItems = [
   {
     id: 1,
-    title: 'Minimalist Task Manager',
-    description: 'A clean and simple task management web application built with React and Firebase.',
-    imageUrl: 'https://picsum.photos/seed/taskmgr/600/400',
-    link: '#', // Replace with actual project link
-    tags: ['React', 'Firebase', 'Web App', 'Productivity'],
+    title: 'Full-Stack E-commerce Platform',
+    description: 'Scalable online store built with Next.js, TypeScript, PostgreSQL, and deployed on Vercel.',
+    imageUrl: 'https://picsum.photos/seed/ecommerce/600/400',
+    link: '#', // Replace with actual project link or GitHub repo
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Full-Stack'],
   },
   {
     id: 2,
-    title: 'Abstract Generative Art',
-    description: 'Exploring algorithms to create unique and abstract visual patterns using p5.js.',
-    imageUrl: 'https://picsum.photos/seed/genart/600/400',
-    link: '#', // Replace with actual project link
-    tags: ['p5.js', 'Generative Art', 'Creative Coding'],
+    title: 'Real-time Collaboration Tool',
+    description: 'A web application enabling users to collaborate on documents in real-time using WebSockets and React.',
+    imageUrl: 'https://picsum.photos/seed/collabtool/600/400',
+    link: '#', // Replace with actual project link or GitHub repo
+    tags: ['React', 'Node.js', 'WebSocket', 'MongoDB', 'Real-time'],
   },
   {
     id: 3,
-    title: 'Personal Blog Platform',
-    description: 'The very platform you are on! Built with Next.js for performance and simplicity.',
-    imageUrl: 'https://picsum.photos/seed/blogplat/600/400',
-    link: '/', // Link to the home page
-    tags: ['Next.js', 'React', 'Tailwind CSS', 'Web Development'],
+    title: 'Component Library Showcase',
+    description: 'A Storybook site documenting a custom React component library built for reusability.',
+    imageUrl: 'https://picsum.photos/seed/storybook/600/400',
+    link: '#', // Replace with actual project link or GitHub repo
+    tags: ['React', 'Storybook', 'UI/UX', 'Component Library', 'Frontend'],
   },
     {
     id: 4,
-    title: 'E-commerce UI Kit',
-    description: 'A reusable set of UI components designed for minimalist e-commerce sites.',
-    imageUrl: 'https://picsum.photos/seed/uikit/600/400',
-    link: '#', // Replace with actual project link
-    tags: ['UI Design', 'Figma', 'Component Library'],
+    title: 'Serverless API Backend',
+    description: 'A RESTful API built with AWS Lambda, API Gateway, and DynamoDB for a mobile application.',
+    imageUrl: 'https://picsum.photos/seed/serverless/600/400',
+    link: '#', // Replace with actual project link or GitHub repo
+    tags: ['AWS Lambda', 'API Gateway', 'DynamoDB', 'Serverless', 'Backend'],
   },
 ];
 
@@ -51,11 +51,11 @@ export default function PortfolioPage() {
     <div>
       <h1 className="text-3xl font-bold mb-8">Portfolio</h1>
       <p className="text-lg text-muted-foreground mb-10 max-w-3xl">
-        Here are some selected projects I've worked on, showcasing my skills in design and development.
+        Here are some selected software development projects I've worked on, showcasing my skills across the stack.
       </p>
       <div className="grid gap-8 md:grid-cols-2">
         {portfolioItems.map((item) => (
-          <Card key={item.id} className="overflow-hidden group hover:shadow-lg transition-shadow duration-200">
+          <Card key={item.id} className="overflow-hidden group hover:shadow-lg transition-shadow duration-200 border border-border"> {/* Added border */}
             <div className="relative h-48 w-full">
               <Image
                 src={item.imageUrl}
@@ -71,7 +71,7 @@ export default function PortfolioPage() {
               <CardTitle className="text-xl mb-1 flex justify-between items-center">
                 {item.title}
                 {item.link && item.link !== '#' && (
-                   <Link href={item.link} target="_blank" rel="noopener noreferrer" className="text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                   <Link href={item.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 opacity-0 group-hover:opacity-100 transition-opacity"> {/* Changed text-accent to text-primary */}
                     <ExternalLink className="h-5 w-5" />
                     <span className="sr-only">View Project</span>
                   </Link>
@@ -82,9 +82,9 @@ export default function PortfolioPage() {
             <CardContent>
                <div className="flex flex-wrap gap-2 mt-2">
                 {item.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-muted-foreground bg-secondary px-2 py-0.5 rounded">
+                   <Badge key={tag} variant="secondary" className="text-xs"> {/* Used Badge component */}
                     {tag}
-                  </span>
+                  </Badge>
                 ))}
               </div>
             </CardContent>

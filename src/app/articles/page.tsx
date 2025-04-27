@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 
 export const metadata: Metadata = {
   title: 'Articles - Minimalist Muse',
-  description: 'Read articles on various topics.',
+  description: 'Read articles on software development, design, and productivity.',
 };
 
 // Mock data - replace with actual data fetching later
@@ -23,15 +23,15 @@ const articles = [
     slug: 'getting-started-with-nextjs',
     title: 'Getting Started with Next.js 15',
     date: new Date(2024, 5, 28),
-    excerpt: 'A beginner-friendly guide to setting up your first Next.js application.',
-    tags: ['Web Development', 'Next.js', 'React'],
+    excerpt: 'A beginner-friendly guide to setting up your first Next.js application using the App Router.',
+    tags: ['Web Development', 'Next.js', 'React', 'TypeScript'], // Added TypeScript
   },
   {
     slug: 'mindful-productivity',
-    title: 'Mindful Productivity: Achieving More with Less Stress',
+    title: 'Mindful Productivity for Developers', // Updated title
     date: new Date(2024, 5, 10),
-    excerpt: 'Techniques to enhance focus and reduce overwhelm in your daily work.',
-    tags: ['Productivity', 'Mindfulness', 'Well-being'],
+    excerpt: 'Techniques for developers to enhance focus, reduce cognitive load, and prevent burnout.', // Updated excerpt
+    tags: ['Productivity', 'Mindfulness', 'Well-being', 'Software Development'], // Added Software Development
   },
 ];
 
@@ -41,10 +41,10 @@ export default function ArticlesPage() {
       <h1 className="text-3xl font-bold mb-8">Articles</h1>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {articles.map((article) => (
-          <Card key={article.slug} className="flex flex-col hover:shadow-md transition-shadow duration-200">
+          <Card key={article.slug} className="flex flex-col hover:shadow-md transition-shadow duration-200 border border-border"> {/* Added border */}
             <CardHeader>
               <CardTitle className="text-xl mb-1">
-                <Link href={`/articles/${article.slug}`} className="hover:text-accent">
+                <Link href={`/articles/${article.slug}`} className="hover:text-primary transition-colors"> {/* Changed hover:text-accent to hover:text-primary */}
                   {article.title}
                 </Link>
               </CardTitle>
@@ -59,7 +59,7 @@ export default function ArticlesPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Link href={`/articles/${article.slug}`} className="text-sm text-accent font-medium flex items-center group">
+              <Link href={`/articles/${article.slug}`} className="text-sm text-primary font-medium flex items-center group hover:text-primary/80 transition-colors"> {/* Changed text-accent to text-primary */}
                 Read More
                 <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
