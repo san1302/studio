@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -12,6 +11,7 @@ const navItems = [
   { href: '/articles', label: 'Articles' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/resume', label: 'Resume' },
+  { href: '/meet', label: 'Meet' },
 ];
 
 export default function Header() {
@@ -26,7 +26,7 @@ export default function Header() {
       <div className="container flex h-14 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <CodeXml className="h-6 w-6 text-primary" /> {/* Changed Feather to CodeXml and text-accent to text-primary */}
-          <span className="font-bold hidden sm:inline-block">Minimalist Muse</span>
+          <span className="font-bold hidden sm:inline-block">Sanchit Agarwal</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium flex-grow">
           {navItems.map((item) => (
@@ -80,7 +80,7 @@ export default function Header() {
              </button>
           <Link href="/" className="flex items-center mb-8" onClick={closeMobileMenu}>
              <CodeXml className="h-6 w-6 mr-2 text-primary" /> {/* Changed Feather to CodeXml and text-accent to text-primary */}
-            <span className="font-bold">Minimalist Muse</span>
+            <span className="font-bold">Sanchit Agarwal</span>
           </Link>
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => (

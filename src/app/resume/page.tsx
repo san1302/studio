@@ -1,14 +1,15 @@
+import React from "react";
 import { Metadata } from 'next';
-import { Download, Mail, Phone, Linkedin, Github, MapPin, Code } from 'lucide-react'; // Added Code icon
+import { Download, Mail, Phone, Linkedin, Github, MapPin, Code, Facebook } from 'lucide-react'; // Added Code icon and Facebook icon
 
 export const metadata: Metadata = {
-  title: 'Resume - Minimalist Muse',
-  description: 'View or download the resume of Minimalist Muse, Full-Stack Developer.',
+  title: 'Resume - Sanchit Agarwal',
+  description: 'View or download the resume of Sanchit Agarwal, Full-Stack Developer.',
 };
 
 // Mock Resume Data - Replace with your actual information
 const resumeData = {
-  name: 'Minimalist Muse',
+  name: 'Sanchit Agarwal',
   title: 'Full-Stack Developer', // Updated title
   location: 'Cyberspace | Remote', // Updated location
   contact: {
@@ -68,103 +69,117 @@ const resumeData = {
 
 export default function ResumePage() {
   return (
-    <div>
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-        <h1 className="text-3xl font-bold mb-4 md:mb-0 flex items-center gap-2">
-           <Code size={28} className="text-primary"/> {/* Added Code icon */}
-           Resume
-        </h1>
-        {/* Basic link styled as a button */}
-        <a href="/resume-minimalist-muse-dev.pdf" download className="btn btn-outline btn-md">
-            <Download className="mr-2 h-4 w-4" />
-            Download PDF
-        </a>
-      </div>
-
-       {/* Basic div styled as a card */}
-      <div className="card mb-8 shadow-sm border border-border p-6">
-        <div className="card-header border-b border-border pb-4 mb-4"> {/* Basic header div with bottom border */}
-           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div>
-              <h2 className="card-title text-2xl">{resumeData.name}</h2> {/* Basic title */}
-              <p className="text-lg text-primary font-medium mt-1">{resumeData.title}</p>
-               <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1"><MapPin size={14}/> {resumeData.location}</p>
-            </div>
-             <div className="text-sm text-muted-foreground mt-4 md:mt-0 space-y-1 text-left md:text-right">
-               <a href={`mailto:${resumeData.contact.email}`} className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors">
-                 <Mail size={14} /> {resumeData.contact.email}
-               </a>
-               {/* Phone number commented out by default */}
-               {/* <p className="flex items-center justify-start md:justify-end gap-2"><Phone size={14}/> {resumeData.contact.phone}</p> */}
-               <a href={`https://${resumeData.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors">
-                 <Linkedin size={14} /> {resumeData.contact.linkedin}
-               </a>
-                <a href={`https://${resumeData.contact.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start md:justify-end gap-2 hover:text-primary transition-colors">
-                 <Github size={14} /> {resumeData.contact.github}
-               </a>
-             </div>
-           </div>
+    <div className="container max-w-3xl py-10 md:py-16">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2">Sanchit <span className="text-primary">Agarwal</span></h1>
+          <div className="text-muted-foreground text-sm md:text-base flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+            <span>sanchitagarwal0332@gmail.com</span>
+            <span className="hidden md:inline">|</span>
+            <span>+91 7355144155</span>
+          </div>
         </div>
-        <div className="card-content"> {/* Basic content div */}
-          <p className="text-muted-foreground">{resumeData.summary}</p>
+        <div className="text-xs text-muted-foreground mt-2 md:mt-0 md:text-right">
+          Last Updated on 14th December 2024
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
-           {/* Basic div styled as a card */}
-          <div className="card shadow-sm border border-border p-6">
-            <div className="card-header mb-4 border-b border-border pb-4"> {/* Basic header div */}
-              <h3 className="card-title">Experience</h3> {/* Basic title */}
-            </div>
-            <div className="card-content space-y-6"> {/* Basic content div */}
-              {resumeData.experience.map((job, index) => (
-                <div key={index}>
-                  <h4 className="font-semibold">{job.title}</h4>
-                  <p className="text-sm text-primary font-medium">{job.company} | {job.location}</p>
-                  <p className="text-xs text-muted-foreground mb-2">{job.period}</p>
-                  <p className="text-sm text-muted-foreground">{job.description}</p>
-                   {/* Basic hr styled as a separator */}
-                   {index < resumeData.experience.length - 1 && <hr className="separator separator-horizontal mt-6" />}
-                </div>
-              ))}
-            </div>
-          </div>
-
-            {/* Basic div styled as a card */}
-           <div className="card shadow-sm border border-border p-6">
-            <div className="card-header mb-4 border-b border-border pb-4"> {/* Basic header div */}
-              <h3 className="card-title">Education</h3> {/* Basic title */}
-            </div>
-            <div className="card-content space-y-4"> {/* Basic content div */}
-              {resumeData.education.map((edu, index) => (
-                <div key={index}>
-                  <h4 className="font-semibold">{edu.degree}</h4>
-                  <p className="text-sm text-muted-foreground">{edu.institution} | {edu.location}</p>
-                  <p className="text-xs text-muted-foreground">{edu.period}</p>
-                </div>
-              ))}
-            </div>
+      {/* Education & Links */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="card">
+          <h2 className="card-title mb-2">EDUCATION</h2>
+          <div className="font-semibold">BIT MESRA</div>
+          <div>BE in Information Technology</div>
+          <div className="text-muted-foreground text-sm">Graduated 2021 | Ranchi, India</div>
+        </div>
+        <div className="card">
+          <h2 className="card-title mb-2">LINKS</h2>
+          <div className="flex flex-col gap-1">
+            <a href="https://facebook.com/sanchit.agarwal.399" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:underline"><Facebook className="h-4 w-4" /> facebook.com/sanchit.agarwal.399</a>
+            <a href="https://github.com/san1302" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:underline"><Github className="h-4 w-4" /> github.com/san1302</a>
+            <a href="https://linkedin.com/in/sanchitagarwal0332" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:underline"><Linkedin className="h-4 w-4" /> linkedin.com/in/sanchitagarwal0332</a>
           </div>
         </div>
+      </div>
 
-        <div className="lg:col-span-1">
-           {/* Basic div styled as a card */}
-          <div className="card shadow-sm sticky top-20 border border-border p-6">
-            <div className="card-header mb-4 border-b border-border pb-4"> {/* Basic header div */}
-              <h3 className="card-title">Skills</h3> {/* Basic title */}
-            </div>
-            <div className="card-content"> {/* Basic content div */}
-              <div className="flex flex-wrap gap-2">
-                {resumeData.skills.map((skill, index) => (
-                   // Basic span styled as a badge
-                   <span key={index} className="badge badge-secondary font-normal">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* Projects */}
+      <div className="card mb-8">
+        <h2 className="card-title mb-4">PROJECTS</h2>
+        <div className="mb-4">
+          <div className="font-semibold">GLOBAL DESIGN SYSTEM</div>
+          <div className="text-muted-foreground text-sm mb-1">Spearheaded the creation of a unified design system for AB InBev, addressing inconsistencies across global zones. Standardized functional components and developed customizable themes to cater to localized requirements, ensuring alignment and usability across the organization.</div>
+          <div className="text-xs text-muted-foreground mb-2">Technologies used: React.js, Node.js</div>
+        </div>
+        <div className="mb-4">
+          <div className="font-semibold">DEVREWBERY PLATFORM</div>
+          <div className="text-muted-foreground text-sm mb-1">Consolidated multiple Power BI dashboards (e.g., DevOps costing, infra analysis, and code-related KPIs) into a unified web platform. Led frontend development and backend architecture setup, streamlining access to key insights for stakeholders.</div>
+          <div className="text-xs text-muted-foreground mb-2">Technologies used: React.js, Node.js, MongoDB, MSSQL, GraphQL</div>
+        </div>
+        <div className="mb-4">
+          <div className="font-semibold">PROCESS AUTOMATION TOOL</div>
+          <div className="text-muted-foreground text-sm mb-1">Developed a self-service portal enabling employees to request access to tools like Azure DevOps, GitHub, and SonarCloud. Migrated Azure DevOps access from ServiceNow, saving thousands of dollars annually by eliminating cross-charging fees. The project was built end-to-end using React.js and Node.js and delivered cost-effective and scalable solutions for enterprise users.</div>
+          <div className="text-xs text-muted-foreground mb-2">Technologies used: React.js, Node.js</div>
+        </div>
+        <div className="mb-4">
+          <div className="font-semibold">CIBIL COMPLIANCE PROJECT</div>
+          <div className="text-muted-foreground text-sm mb-1">Developed a consent flow for the "Free Credit Score" feature in Amazon Pay to comply with revised RBI guidelines. Delivered this project in under three weeks, leading frontend and backend efforts for a seamless production launch.</div>
+          <div className="text-xs text-muted-foreground mb-2">Technologies used: Node.js, React.js</div>
+        </div>
+      </div>
+
+      {/* Experience */}
+      <div className="card mb-8">
+        <h2 className="card-title mb-4">EXPERIENCE</h2>
+        <div className="mb-4">
+          <div className="font-semibold">AB INBEV | Software Engineer</div>
+          <div className="text-xs text-muted-foreground mb-1">April 2023 – Present | Bangalore, India</div>
+          <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
+            <li>Designed and developed a self-service portal for enterprise tool access, saving 20,000 dollars annually by automating Azure DevOps workflows.</li>
+            <li>Consolidated multiple dashboards into a unified analytics platform, reducing data retrieval time by 30 percent.</li>
+            <li>Implemented real-time cost insights for Azure DevOps and GitHub, providing financial visibility for 50+ teams.</li>
+            <li>Led the development of a global design system to standardize components across zones.</li>
+          </ul>
+        </div>
+        <div className="mb-4">
+          <div className="font-semibold">AMAZON | Software Engineer</div>
+          <div className="text-xs text-muted-foreground mb-1">August 2021 – December 2022 | Bangalore, India</div>
+          <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
+            <li>Worked on launching new flows in "Free credit score" feature that is present in Amazon Pay section.</li>
+            <li>Led many projects from end to end, helped the team in automating many internal tools of Amazon such as the update process of installment plans. Also, introduced bulk update feature of installment plans.</li>
+            <li>Worked on Google guice, spring, angular js, java, javascript, typescript and many AWS services.</li>
+          </ul>
+        </div>
+        <div className="mb-4">
+          <div className="font-semibold">AMAZON | Software Engineering Intern</div>
+          <div className="text-xs text-muted-foreground mb-1">Jan 2021 – July 2021 | Bangalore, India</div>
+          <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
+            <li>Built an internal secure channel which automated the process of sending/receiving confidential files from Lenders as well as processing and storing those received files in required format in our storage units.</li>
+            <li>Worked on AWS services like Lambda, Data Pipeline, Fargate, DynamoDB, S3.</li>
+            <li>Used Node.js, SQL queries, Javascript.</li>
+          </ul>
+        </div>
+        <div className="mb-4">
+          <div className="font-semibold">HCL TECHNOLOGIES LIMITED | Software Engineering Intern</div>
+          <div className="text-xs text-muted-foreground mb-1">May 2019 – July 2019 | Lucknow, India</div>
+          <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
+            <li>Worked there as a full stack developer</li>
+            <li>Built a web-based application to serve the students and teachers of any college. It was developed to make the academic life of a student easier.</li>
+            <li>Used Node.js, React.js, MongoDB.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Skills */}
+      <div className="card mb-8">
+        <h2 className="card-title mb-4">SKILLS</h2>
+        <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
+          <span className="badge">Javascript</span>
+          <span className="badge">React</span>
+          <span className="badge">Node.js</span>
+          <span className="badge">MongoDB</span>
+          <span className="badge">SQL</span>
+          <span className="badge">C++</span>
         </div>
       </div>
     </div>

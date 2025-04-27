@@ -104,7 +104,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${article.title} - Minimalist Muse`,
+    title: `${article.title} - Sanchit Agarwal`,
     description: `Read the article: ${article.title}`, // You might want a more specific excerpt here
   };
 }

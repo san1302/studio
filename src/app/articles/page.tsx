@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
 
 export const metadata: Metadata = {
-  title: 'Articles - Minimalist Muse',
+  title: 'Articles - Sanchit Agarwal',
   description: 'Read articles on software development, design, and productivity.',
 };
 

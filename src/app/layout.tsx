@@ -12,8 +12,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: 'Minimalist Muse - Personal Website',
-  description: 'Articles, Portfolio, and Resume of a Minimalist Muse.',
+  title: 'Sanchit Agarwal - Personal Website',
+  description: 'Articles, Portfolio, and Resume of a Sanchit Agarwal.',
 };
 
 export default function RootLayout({

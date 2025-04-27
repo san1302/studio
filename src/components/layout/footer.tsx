@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex items-center gap-4 px-8 md:px-0">
           <Code2 className="h-5 w-5 text-muted-foreground" /> {/* Changed Feather to Code2 */}
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Built by Minimalist Muse. &copy; {currentYear}
+            Built by Sanchit Agarwal. &copy; {currentYear}
           </p>
         </div>
         {/* Add social links or other footer content here if needed */}
