@@ -6,10 +6,26 @@ import ContactForm from "@/components/contact-form"; // Import ContactForm
 export default function Home() {
   return (
     <div className="flex flex-col items-center text-center py-10 md:py-20">
-      <Code className="h-12 w-12 text-primary mb-4" />
-      <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-        Sanchit Agarwal
-      </h1>
+      <div className="mb-4">
+        {/* Light mode logo */}
+        <Image
+          src="/images/full-logo-black.png"
+          alt="Sanchit Verse Logo"
+          width={220}
+          height={120}
+          className="block dark:hidden mx-auto"
+          priority
+        />
+        {/* Dark mode logo */}
+        <Image
+          src="/images/full-logo.png"
+          alt="Sanchit Verse Logo"
+          width={220}
+          height={120}
+          className="hidden dark:block mx-auto"
+          priority
+        />
+      </div>
       <p className="text-lg text-muted-foreground max-w-2xl mb-8">
         Crafting clean code and intuitive designs. Exploring ideas through
         writing, showcasing creative work, and sharing professional experiences

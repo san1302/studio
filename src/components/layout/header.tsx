@@ -29,10 +29,10 @@ export default function Header() {
           <Image
             src="/images/logo-sanchit-verse.png"
             alt="Sanchit Agarwal Logo"
-            width={20}
+            width={40}
             height={200}
           />
-          <span className="font-bold hidden sm:inline-block">Sanchit Agarwal</span>
+          {/* <span className="font-bold hidden sm:inline-block">Sanchit Agarwal</span> */}
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium flex-grow">
           {navItems.map((item) => (
