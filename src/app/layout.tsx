@@ -12,7 +12,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: 'Sanchit Agarwal - Personal Website',
+  title: 'Sanchit Verse',
   description: 'Articles, Portfolio, and Resume of a Sanchit Agarwal.',
 };
 
