@@ -36,16 +36,12 @@ export default function Home() {
       {/* About Me Section (updated with LinkedIn style) */}
       <section className="w-full max-w-4xl flex flex-col md:flex-row items-center gap-8 md:gap-12 text-left mb-16 md:mb-24">
         <div className="w-40 h-40 md:w-48 md:h-48 relative flex-shrink-0">
-          {/* Basic div for placeholder with Tailwind classes */}
-          <div className="absolute inset-0 flex items-center justify-center bg-muted rounded-full -z-10 border-4 border-white dark:border-card shadow-md">
-            <User className="h-16 w-16 text-muted-foreground" />
-          </div>
+          {/* Logo image instead of placeholder */}
           <Image
-            src="/placeholder-dev.png"
-            alt="Sanchit Agarwal Portrait"
-            width={192}
-            height={192}
-            className="rounded-full border-4 border-white dark:border-card shadow-md z-10 object-cover"
+            src="/images/logo-sanchit-verse.png"
+            alt="Sanchit Agarwal Logo"
+            width={430}
+            height={200}
           />
         </div>
         <div className="flex flex-col text-center md:text-left">

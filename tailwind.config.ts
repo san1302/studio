@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from '@tailwindcss/typography';
 
 export default {
     darkMode: ["class"],
@@ -22,7 +23,7 @@ export default {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
+  				DEFAULT: '#00acb5',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
@@ -54,5 +55,5 @@ export default {
       // Remove keyframes and animation if they were only for ShadCN components
   	}
   },
-  plugins: [], // Remove tailwindcss-animate
+  plugins: [typography],
 } satisfies Config;

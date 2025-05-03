@@ -2,38 +2,17 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
+import { getAllArticles } from '@/lib/markdown';
 
 export const metadata: Metadata = {
   title: 'Articles - Sanchit Agarwal',
   description: 'Read articles on software development, design, and productivity.',
 };
 
-// Mock data - replace with actual data fetching later
-const articles = [
-  {
-    slug: 'minimalism-in-design',
-    title: 'The Power of Minimalism in Design',
-    date: new Date(2024, 6, 15),
-    excerpt: 'Exploring how less can be more in creating impactful user experiences.',
-    tags: ['Design', 'Minimalism', 'UI/UX'],
-  },
-  {
-    slug: 'getting-started-with-nextjs',
-    title: 'Getting Started with Next.js 15',
-    date: new Date(2024, 5, 28),
-    excerpt: 'A beginner-friendly guide to setting up your first Next.js application using the App Router.',
-    tags: ['Web Development', 'Next.js', 'React', 'TypeScript'], // Added TypeScript
-  },
-  {
-    slug: 'mindful-productivity',
-    title: 'Mindful Productivity for Developers', // Updated title
-    date: new Date(2024, 5, 10),
-    excerpt: 'Techniques for developers to enhance focus, reduce cognitive load, and prevent burnout.', // Updated excerpt
-    tags: ['Productivity', 'Mindfulness', 'Well-being', 'Software Development'], // Added Software Development
-  },
-];
-
-export default function ArticlesPage() {
+export default async function ArticlesPage() {
+  // Fetch articles from markdown files
+  const articles = await getAllArticles();
+  
   return (
     <div>
       <h1 className="text-3xl font-bold mb-8">Articles</h1>

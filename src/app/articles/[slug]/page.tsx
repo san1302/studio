@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { getArticleBySlug, getArticleSlugs } from '@/lib/markdown';
 
 // Mock data - replace with actual data fetching
 const articlesData: { [key: string]: any } = {
@@ -88,14 +89,8 @@ const articlesData: { [key: string]: any } = {
   },
 };
 
-
-// Function to fetch article data (replace with actual API call/DB query)
-async function getArticle(slug: string) {
-  return articlesData[slug];
-}
-
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const article = await getArticle(params.slug);
+  const article = await getArticleBySlug(params.slug);
 
   if (!article) {
     return {
@@ -105,13 +100,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   return {
     title: `${article.title} - Sanchit Agarwal`,
-    description: `Read the article: ${article.title}`, // You might want a more specific excerpt here
+    description: article.excerpt,
   };
 }
 
-
 export default async function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = await getArticle(params.slug);
+  const article = await getArticleBySlug(params.slug);
 
   if (!article) {
     notFound();
@@ -130,24 +124,21 @@ export default async function ArticlePage({ params }: { params: { slug: string }
         </p>
         <div className="flex flex-wrap gap-2">
           {article.tags.map((tag: string) => (
-            // Basic span styled as a badge
             <span key={tag} className="badge badge-secondary">{tag}</span>
           ))}
         </div>
       </header>
-      {/* Basic hr styled as a separator */}
       <hr className="separator separator-horizontal my-8" />
       <div
         className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:marker:text-muted-foreground"
-        dangerouslySetInnerHTML={{ __html: article.content }}
+        dangerouslySetInnerHTML={{ __html: article.contentHtml || '' }}
       />
     </article>
   );
 }
 
-// Generate static paths for known articles
+// Generate static paths for all articles
 export async function generateStaticParams() {
-  return Object.keys(articlesData).map((slug) => ({
-    slug,
-  }));
+  const slugs = getArticleSlugs();
+  return slugs.map(slug => ({ slug }));
 }

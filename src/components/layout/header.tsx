@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, CodeXml, X } from 'lucide-react'; // Changed Feather to CodeXml, Added X
 import * as React from 'react';
 import { ThemeToggle } from '@/components/theme-toggle'; // Import ThemeToggle
+import Image from "next/image";
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -23,9 +24,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+      <div className="container flex h-20 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <CodeXml className="h-6 w-6 text-primary" /> {/* Changed Feather to CodeXml and text-accent to text-primary */}
+          <Image
+            src="/images/logo-sanchit-verse.png"
+            alt="Sanchit Agarwal Logo"
+            width={20}
+            height={200}
+          />
           <span className="font-bold hidden sm:inline-block">Sanchit Agarwal</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium flex-grow">
@@ -79,8 +85,14 @@ export default function Header() {
                  <X className="h-5 w-5" />
              </button>
           <Link href="/" className="flex items-center mb-8" onClick={closeMobileMenu}>
-             <CodeXml className="h-6 w-6 mr-2 text-primary" /> {/* Changed Feather to CodeXml and text-accent to text-primary */}
-            <span className="font-bold">Sanchit Agarwal</span>
+             <Image
+               src="/images/logo-sanchit-verse.png"
+               alt="Sanchit Agarwal Logo"
+               width={32}
+               height={32}
+               className="rounded bg-white p-1"
+             />
+            <span className="font-bold">Minimalist Muse</span>
           </Link>
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => (
